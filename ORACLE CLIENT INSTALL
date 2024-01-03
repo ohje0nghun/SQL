@@ -40,6 +40,18 @@
 3. 파일명을 tnsnames.ora 파일로 저장합니다.
 
 4. 아래는 샘플 코드입니다.
+
+
+
+XE =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.19.28)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = XE)
+    )
 ```
 
 ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/314ddb61-21ff-439b-adca-07b3b25aae9d/caab18ca-2a5e-41c9-b4c3-65f5ce2a1ad0/Untitled.png)
