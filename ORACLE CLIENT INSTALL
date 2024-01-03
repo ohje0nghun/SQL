@@ -1,47 +1,37 @@
 *ORACLE CLIENT 설치
 
 → 아래 해당 버전 설치
+11.2.0.4.0
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/314ddb61-21ff-439b-adca-07b3b25aae9d/b85b3fe0-5ffe-4aae-a063-2bcdd33b344c/Untitled.png)
+💡 URL: https://www.oracle.com/database/technologies/instant-client/microsoft-windows-32-downloads.html
 
-<aside>
-💡 URL: https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html
-
-</aside>
 
 *환경설정
 
 환경 변수에 ORACLE_HOME, TNS_NAME 두개를 추가합니다.
 
-1. 윈도우>검색>[sysdm.cpl](https://zetawiki.com/w/index.php?title=Sysdm.cpl&action=edit&redlink=1) 을 입력합니다.
-2. 시스템 속성 윈도우가 나타날것입니다.
-3. 고급 탭을 선택합니다.
-4. 하단에 "환경 변수"를 선택합니다.
 
 1. ORACLE_HOME 파일을 설치한 ORACLE CLIENT 경로로 설정합니다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/314ddb61-21ff-439b-adca-07b3b25aae9d/3ea456cf-cc30-4276-9c0f-ed9bcbceb466/Untitled.png)
 
-1. ORACLE CLIENT 설치 경로로 이동 후 TNS_ADMIN 폴더 생성 후 해당 경로를 설정합니다.
+2. ORACLE CLIENT 설치 경로로 이동 후 TNS_ADMIN 폴더 생성 후 해당 경로를 설정합니다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/314ddb61-21ff-439b-adca-07b3b25aae9d/d28f7e5e-30a0-4349-96ba-175286c99d13/Untitled.png)
 
-1. PATH 환경 변수에 ORACLE CLIENT 경로를 추가해줍니다.
+3. PATH 환경 변수에 ORACLE CLIENT 폴더까지 경로를 추가해줍니다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/314ddb61-21ff-439b-adca-07b3b25aae9d/7e87fead-d378-407f-b715-47cc0d8aea6c/Untitled.png)
 
-1. tnsnames.ora 폴더 만들기
+4.. tnsnames.ora 폴더 만들기
+
+
 
 ```
-1. tns_admin 폴더로 이동합니다.
+1. TNS_ADMIN 폴더로 이동합니다.
 
 2. 오른쪽 마우스>새로 만들기>테스트 문서를 선택합니다.
 
 3. 파일명을 tnsnames.ora 파일로 저장합니다.
 
 4. 아래는 샘플 코드입니다.
-
-
 
 XE =
   (DESCRIPTION =
@@ -52,10 +42,15 @@ XE =
       (SERVER = DEDICATED)
       (SERVICE_NAME = XE)
     )
+
 ```
 
+그 다음 client 설치 경로에서 network 폴더 생성 후 그안에 admin 폴더를 생성해줍니다.
 
-ISTENER_ORCL =
+위에 두 폴더에 위에서 설정한 tnsnames.ora 이름으로 파일을 저장하는데 이름은 tnsnames로 설정합니다.
+
+admin 파일 경로에 있는 설정은 아래와 같이 설정합니다.
+LISTENER_ORCL =
   (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1522))
 
 
@@ -110,16 +105,13 @@ xe =
     )
   )
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/314ddb61-21ff-439b-adca-07b3b25aae9d/caab18ca-2a5e-41c9-b4c3-65f5ce2a1ad0/Untitled.png)
+...
 
-1. SITEPLUS TOOL 에서 다음과 같이 설정합니다.
+5. SITEPLUS TOOL 에서 다음과 같이 설정합니다.
 
 →  ORACLE HOME 경로는 ORACLE CLIENT 설치파일 경로까지!
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/314ddb61-21ff-439b-adca-07b3b25aae9d/a7289721-646f-4dad-a362-0b477f05c941/Untitled.png)
 
-1. 설정 SAVE 후 접속 확인
+6. 설정 SAVE 후 접속 확인
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/314ddb61-21ff-439b-adca-07b3b25aae9d/a937fd66-7e53-4dcf-b2ed-e18bdd69d637/Untitled.png)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/314ddb61-21ff-439b-adca-07b3b25aae9d/64571c0b-0c71-4e9d-9b3d-23e2f4a9ac6a/Untitled.png)
