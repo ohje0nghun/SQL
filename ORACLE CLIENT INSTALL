@@ -54,6 +54,62 @@ XE =
     )
 ```
 
+
+ISTENER_ORCL =
+  (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1522))
+
+
+ORACLR_CONNECTION_DATA =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = IPC)(KEY = EXTPROC1522))
+    )
+    (CONNECT_DATA =
+      (SID = CLRExtProc)
+      (PRESENTATION = RO)
+    )
+  )
+
+ORCL =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1522))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = orcl)
+    )
+  )
+
+
+ORCL_donghe =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.19.16)(PORT = 1522))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = orcl)
+    )
+  )
+
+
+
+ORCL_linux =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.19.14)(PORT =8081))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = orcl)
+    )
+  )
+
+
+xe =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT =1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = xe)
+    )
+  )
+
 ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/314ddb61-21ff-439b-adca-07b3b25aae9d/caab18ca-2a5e-41c9-b4c3-65f5ce2a1ad0/Untitled.png)
 
 1. SITEPLUS TOOL 에서 다음과 같이 설정합니다.
