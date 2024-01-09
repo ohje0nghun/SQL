@@ -1,0 +1,6 @@
+select sql_id, child_number, sql_text
+from v$sql
+where sql_text like '%emp%' AND sql_text NOT LIKE '%v$sql%'
+ORDER BY last_load_time DESC;
+
+SELECT * FROM TABLE(dbms_xplan.display_cursor('SQL_ID를 넣으세요', CHILD NUMBER를 넣으세요 ,'ALLSTATS LAST'));
