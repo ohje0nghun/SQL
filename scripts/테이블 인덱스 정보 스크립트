@@ -1,0 +1,15 @@
+read -p "Enter the table name:" table_name
+
+SQL_QUERY="select i.table_name, i.index_name, c.column_name, column_position
+ from user_indexes i , user_ind_columns c
+   where i.index_name = c.index_name
+     and i.table_name=upper('$table_name');"
+
+sqlplus -s scott/tiger << EOF
+col column_name for a10
+col table_name for a10
+col index_name for a10
+
+$SQL_QUERY
+exit;
+EOF
