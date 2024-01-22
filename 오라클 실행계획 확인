@@ -1,0 +1,7 @@
+#예시
+
+select  /*+  gather_plan_statistics   */  ename, sal
+       from  emp
+       where  sal =  1300;
+
+SELECT * FROM TABLE(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
