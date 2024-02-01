@@ -1,0 +1,14 @@
+/***********************************************
+  PuTTy를 이용한 원격 X Window 실행 방법
+    putty 설정 & xming 설치
+***********************************************/
+
+-- xming Download (https://sourceforge.net/projects/xming/)
+-- xming 실행
+
+-- putty X Window 설정 방법
+Configuration(설정) -> Connection -> SSH -> X11
+  - Enable X11 fowarding ->  (체크)
+  - X display location ->   :0.0
+
+Session -> Default Settings -> (Save)
