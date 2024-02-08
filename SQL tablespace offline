@@ -1,0 +1,22 @@
+create tablespace ojh
+     datafile '/home/oracle/ojh' size  10m;
+
+create table emp_ojh
+tablespace ojh
+as
+select * from emp;
+
+
+alter tablespace ojh offline;
+
+
+select tablespace_name, status
+ from dba_tablespaces;
+
+
+mv /home/oracle/ojh /home/oracle/ojh.dbf
+
+alter database rename file '/home/oracle/ojh'
+to '/home/oracle/ojh.dbf';
+
+alter tablespace ojh online;
