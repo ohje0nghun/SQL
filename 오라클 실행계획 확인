@@ -5,3 +5,13 @@ select  /*+  gather_plan_statistics   */  ename, sal
        where  sal =  1300;
 
 SELECT * FROM TABLE(dbms_xplan.display_cursor(null,null,'ALLSTATS LAST'));
+
+
+
+options(skip=1)
+load data
+infile '/home/oracle/sales.csv'
+into table sales100
+fields terminated by ','
+optionally enclosed by '"'
+(PROD_ID,CUST_ID,TIME_ID date "YYYY/MM/DD HH24:MI:SS",CHANNEL_ID,PROMO_ID,QUANTITY_SOLD, AMOUNT_SOLD)
