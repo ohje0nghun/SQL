@@ -1,0 +1,43 @@
+select 'create table '||table_name||' as select * from '||table_name||'@orcl_hr_link where 1 = 2;'
+from user_tables@orcl_hr_link;
+
+*결과
+'CREATETABLE'||TABLE_NAME||'ASSELECT*FROM'||TABLE_NAME||'@ORCL_HR_LINKWHERE1=2;'
+---------------------------------------------------------------------------------------------------------------------
+create table COUNTRIES as select * from COUNTRIES@orcl_hr_link where 1 = 2;
+create table REGIONS as select * from REGIONS@orcl_hr_link where 1 = 2;
+create table EMPLOYEES as select * from EMPLOYEES@orcl_hr_link where 1 = 2;
+create table DEPARTMENTS as select * from DEPARTMENTS@orcl_hr_link where 1 = 2;
+create table LOCATIONS as select * from LOCATIONS@orcl_hr_link where 1 = 2;
+create table JOB_HISTORY as select * from JOB_HISTORY@orcl_hr_link where 1 = 2;
+create table JOBS as select * from JOBS@orcl_hr_link where 1 = 2;
+
+
+select sqltxt 
+                          from ( select rownum+(rownum-2) num,
+
+                                              'insert  /*+ append */  into '||table_name||' select * from '||table_name||'@orcl_hr_link;' sqltxt
+                                     from user_tables@orcl_hr_link
+                                     union all
+                                    select rownum+(rownum-1) num,'commit;' sql
+                                      from dual
+                                 connect by level <= ( select count(*)
+                                                                     from user_tables@orcl_hr_link))
+                       order by num;
+					   
+
+*결과
+insert  /*+ append */  into COUNTRIES select * from COUNTRIES@orcl_hr_link;
+commit;
+insert  /*+ append */  into EMPLOYEES select * from EMPLOYEES@orcl_hr_link;
+commit;
+insert  /*+ append */  into REGIONS select * from REGIONS@orcl_hr_link;
+commit;
+insert  /*+ append */  into LOCATIONS select * from LOCATIONS@orcl_hr_link;
+commit;
+insert  /*+ append */  into DEPARTMENTS select * from DEPARTMENTS@orcl_hr_link;
+commit;
+insert  /*+ append */  into JOB_HISTORY select * from JOB_HISTORY@orcl_hr_link;
+commit;
+insert  /*+ append */  into JOBS select * from JOBS@orcl_hr_link;
+commit;					   
