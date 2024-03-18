@@ -12,3 +12,6 @@ Configuration(설정) -> Connection -> SSH -> X11
   - X display location ->   :0.0
 
 Session -> Default Settings -> (Save)
+
+
+yum install make perl xorg-x11-xauth xterm libGL libEGL nmap
